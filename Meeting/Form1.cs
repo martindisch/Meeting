@@ -12,9 +12,19 @@ namespace Meeting
 {
     public partial class Form1 : Form
     {
+
+        private Dataset ds;
+
         public Form1()
         {
             InitializeComponent();
+            ds = new Dataset();
+        }
+
+        private void bAddSubject_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(ds.getNextId() + "");
+            ds.subjects.Add(new Subject(1, "test"));
         }
     }
 }

@@ -72,6 +72,7 @@
             this.bAddSubject.TabIndex = 1;
             this.bAddSubject.Text = "Thema hinzufügen";
             this.bAddSubject.UseVisualStyleBackColor = true;
+            this.bAddSubject.Click += new System.EventHandler(this.bAddSubject_Click);
             // 
             // lbParticipants
             // 

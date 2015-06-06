@@ -8,5 +8,13 @@ namespace Meeting
 {
     class Meeting
     {
+        public int Subject;
+        public int[] Participants;
+
+        public Meeting(int Subject, int[] Participants)
+        {
+            this.Subject = Subject;
+            this.Participants = Participants;
+        }
     }
 }
