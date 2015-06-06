@@ -44,18 +44,16 @@
             // 
             // gbData
             // 
-            this.gbData.Controls.Add(this.bLoad);
-            this.gbData.Controls.Add(this.bSave);
             this.gbData.Controls.Add(this.bAddParticipants);
             this.gbData.Controls.Add(this.lbParticipants);
             this.gbData.Controls.Add(this.bAddSubject);
             this.gbData.Controls.Add(this.lbSubjects);
             this.gbData.Location = new System.Drawing.Point(13, 13);
             this.gbData.Name = "gbData";
-            this.gbData.Size = new System.Drawing.Size(338, 588);
+            this.gbData.Size = new System.Drawing.Size(338, 526);
             this.gbData.TabIndex = 0;
             this.gbData.TabStop = false;
-            this.gbData.Text = "Daten";
+            this.gbData.Text = "Grunddaten";
             // 
             // lbSubjects
             // 
@@ -95,7 +93,7 @@
             // 
             // bSave
             // 
-            this.bSave.Location = new System.Drawing.Point(172, 554);
+            this.bSave.Location = new System.Drawing.Point(670, 545);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(160, 28);
             this.bSave.TabIndex = 4;
@@ -104,7 +102,7 @@
             // 
             // bLoad
             // 
-            this.bLoad.Location = new System.Drawing.Point(7, 554);
+            this.bLoad.Location = new System.Drawing.Point(504, 545);
             this.bLoad.Name = "bLoad";
             this.bLoad.Size = new System.Drawing.Size(160, 28);
             this.bLoad.TabIndex = 5;
@@ -114,17 +112,16 @@
             // gbMeetings
             // 
             this.gbMeetings.Controls.Add(this.lbMeetings);
-            this.gbMeetings.Controls.Add(this.bGenerate);
             this.gbMeetings.Location = new System.Drawing.Point(371, 13);
             this.gbMeetings.Name = "gbMeetings";
-            this.gbMeetings.Size = new System.Drawing.Size(559, 588);
+            this.gbMeetings.Size = new System.Drawing.Size(559, 526);
             this.gbMeetings.TabIndex = 1;
             this.gbMeetings.TabStop = false;
             this.gbMeetings.Text = "Treffen";
             // 
             // bGenerate
             // 
-            this.bGenerate.Location = new System.Drawing.Point(459, 554);
+            this.bGenerate.Location = new System.Drawing.Point(836, 545);
             this.bGenerate.Name = "bGenerate";
             this.bGenerate.Size = new System.Drawing.Size(94, 28);
             this.bGenerate.TabIndex = 1;
@@ -137,14 +134,17 @@
             this.lbMeetings.ItemHeight = 16;
             this.lbMeetings.Location = new System.Drawing.Point(7, 22);
             this.lbMeetings.Name = "lbMeetings";
-            this.lbMeetings.Size = new System.Drawing.Size(546, 516);
+            this.lbMeetings.Size = new System.Drawing.Size(546, 500);
             this.lbMeetings.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 613);
+            this.ClientSize = new System.Drawing.Size(942, 582);
+            this.Controls.Add(this.bSave);
+            this.Controls.Add(this.bGenerate);
+            this.Controls.Add(this.bLoad);
             this.Controls.Add(this.gbMeetings);
             this.Controls.Add(this.gbData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
