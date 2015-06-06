@@ -48,6 +48,7 @@
             this.bClose.TabIndex = 1;
             this.bClose.Text = "Schliessen";
             this.bClose.UseVisualStyleBackColor = true;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
             // bSave
             // 

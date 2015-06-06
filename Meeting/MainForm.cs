@@ -34,6 +34,7 @@ namespace Meeting
             {
                 DS.Subjects.Add(new Subject(DS.GetNextId(), NewNames.ElementAt(i)));
             }
+            NewNames.Clear();
         }
     }
 }
