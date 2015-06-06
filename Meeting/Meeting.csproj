@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dataset.cs" />
+    <Compile Include="EditPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPersonForm.Designer.cs">
+      <DependentUpon>EditPersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="NewSubjectForm.Designer.cs">
       <DependentUpon>NewSubjectForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditPersonForm.resx">
+      <DependentUpon>EditPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSubjectForm.resx">
       <DependentUpon>EditSubjectForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,7 +12,6 @@ namespace Meeting
 {
     public partial class EditSubjectForm : Form
     {
-
         private MainForm Parent;
 
         public EditSubjectForm(MainForm parent, string name)

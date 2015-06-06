@@ -10,14 +10,36 @@ using System.Windows.Forms;
 
 namespace Meeting
 {
-    public partial class NewPersonForm : Form
+    public partial class EditPersonForm : Form
     {
-        private MainForm Parent;
+        MainForm Parent;
 
-        public NewPersonForm(MainForm parent)
+        public EditPersonForm(MainForm parent, string name, bool[] days)
         {
             InitializeComponent();
             this.Parent = parent;
+            tbName.Text = name;
+            if (days[0])
+            {
+                checkBox1.Checked = true;
+            }
+            if (days[1])
+            {
+                checkBox2.Checked = true;
+            }
+            if (days[2])
+            {
+                checkBox3.Checked = true;
+            }
+            if (days[3])
+            {
+                checkBox4.Checked = true;
+            }
+            if (days[4])
+            {
+                checkBox5.Checked = true;
+            }
+            tbName.SelectAll();
             tbName.KeyDown += new KeyEventHandler(tb_KeyDown);
         }
 
@@ -27,11 +49,6 @@ namespace Meeting
             {
                 savePerson();
             }
-        }
-
-        private void bSave_Click(object sender, EventArgs e)
-        {
-            savePerson();
         }
 
         private void savePerson()
@@ -60,18 +77,12 @@ namespace Meeting
             }
             Parent.NewPeopleDays.Add(days);
 
-            tbName.Clear();
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
-            checkBox3.Checked = false;
-            checkBox4.Checked = false;
-            checkBox5.Checked = false;
-            this.ActiveControl = tbName;
+            Close();
         }
 
-        private void bClose_Click(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
-            Close();
+            savePerson();
         }
     }
 }

@@ -35,12 +35,18 @@ namespace Meeting
             NewPeopleNames = new List<String>();
             NewPeopleDays = new List<bool[]>();
 
-            ContextMenu cm = new ContextMenu();
-            cm.MenuItems.Add("Neues Treffen", new EventHandler(SubjectsItemClick));
-            cm.MenuItems.Add("Bearbeiten", new EventHandler(SubjectsItemClick));
-            cm.MenuItems.Add("Löschen", new EventHandler(SubjectsItemClick));
-            lbSubjects.ContextMenu = cm;
+            ContextMenu cmSubjects = new ContextMenu();
+            cmSubjects.MenuItems.Add("Neues Treffen", new EventHandler(SubjectsItemClick));
+            cmSubjects.MenuItems.Add("Bearbeiten", new EventHandler(SubjectsItemClick));
+            cmSubjects.MenuItems.Add("Löschen", new EventHandler(SubjectsItemClick));
+            lbSubjects.ContextMenu = cmSubjects;
             lbSubjects.MouseDown += lbSubjects_MouseDown;
+
+            ContextMenu cmPeople = new ContextMenu();
+            cmPeople.MenuItems.Add("Bearbeiten", new EventHandler(PeopleItemClick));
+            cmPeople.MenuItems.Add("Löschen", new EventHandler(PeopleItemClick));
+            lbParticipants.ContextMenu = cmPeople;
+            lbParticipants.MouseDown += lbPeople_MouseDown;
         }
 
         void SubjectsItemClick(object sender, EventArgs e)
@@ -79,10 +85,44 @@ namespace Meeting
             {
                 //select the item under the mouse pointer
                 lbSubjects.SelectedIndex = lbSubjects.IndexFromPoint(e.Location);
-                if (lbSubjects.SelectedIndex != -1)
+            }
+        }
+
+        void PeopleItemClick(object sender, EventArgs e)
+        {
+            if (lbParticipants.SelectedIndex != -1)
+            {
+                MenuItem clickedItem = sender as MenuItem;
+                switch (clickedItem.Text)
                 {
-                    //listboxContextMenu.Show();
+                    case "Bearbeiten":
+                        EditPersonForm input = new EditPersonForm(this, DS.Participants.ElementAt(lbParticipants.SelectedIndex).Name, DS.Participants.ElementAt(lbParticipants.SelectedIndex).Days);
+                        input.ShowDialog();
+                        if (NewPeopleNames.Count > 0)
+                        {
+                            DS.Participants.ElementAt(lbParticipants.SelectedIndex).Name = NewPeopleNames.ElementAt(0);
+                            DS.Participants.ElementAt(lbParticipants.SelectedIndex).Days = NewPeopleDays.ElementAt(0);
+                            NewPeopleNames.Clear();
+                            NewPeopleDays.Clear();
+                            lbParticipants.DataSource = null;
+                            lbParticipants.DisplayMember = "Name";
+                            lbParticipants.ValueMember = "ID";
+                            lbParticipants.DataSource = DS.Participants;
+                        }
+                        break;
+                    case "Löschen":
+                        DS.Participants.RemoveAt(lbParticipants.SelectedIndex);
+                        break;
                 }
+            }
+        }
+
+        private void lbPeople_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                //select the item under the mouse pointer
+                lbParticipants.SelectedIndex = lbParticipants.IndexFromPoint(e.Location);
             }
         }
 
@@ -105,7 +145,8 @@ namespace Meeting
             {
                 DS.Participants.Add(new Person(DS.GetNextId(), NewPeopleNames.ElementAt(i), NewPeopleDays.ElementAt(i)));
             }
-            NewSubjectsNames.Clear();
+            NewPeopleNames.Clear();
+            NewPeopleDays.Clear();
         }
     }
 }
