@@ -8,13 +8,13 @@ namespace Meeting
 {
     class Subject
     {
-        public int ID;
-        public string Name;
+        public int ID { get; set; }
+        public string Name { get; set; }
 
-        public Subject(int ID, string Name)
+        public Subject(int id, string name)
         {
-            this.ID = ID;
-            this.Name = Name;
+            this.ID = id;
+            this.Name = name;
         }
     }
 }

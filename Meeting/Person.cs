@@ -8,15 +8,15 @@ namespace Meeting
 {
     class Person
     {
-        public int ID;
-        public string Name;
-        public int[] Days;
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int[] Days { get; set; }
 
-        public Person(int ID, string Name, int[] Days)
+        public Person(int id, string name, int[] days)
         {
-            this.ID = ID;
-            this.Name = Name;
-            this.Days = Days;
+            this.ID = id;
+            this.Name = name;
+            this.Days = days;
         }
     }
 }

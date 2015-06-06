@@ -10,21 +10,19 @@ using System.Windows.Forms;
 
 namespace Meeting
 {
-    public partial class Form1 : Form
+    public partial class SubjectForm : Form
     {
+        private MainForm Parent;
 
-        private Dataset ds;
-
-        public Form1()
+        public SubjectForm(MainForm parent)
         {
             InitializeComponent();
-            ds = new Dataset();
+            Parent = parent;
         }
 
-        private void bAddSubject_Click(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(ds.getNextId() + "");
-            ds.subjects.Add(new Subject(1, "test"));
+            Parent.NewNames.Add(tbName.Text);
         }
     }
 }

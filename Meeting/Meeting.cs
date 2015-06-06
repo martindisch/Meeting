@@ -8,13 +8,13 @@ namespace Meeting
 {
     class Meeting
     {
-        public int Subject;
-        public int[] Participants;
+        public int Subject { get; set; }
+        public int[] Participants { get; set; }
 
-        public Meeting(int Subject, int[] Participants)
+        public Meeting(int subject, int[] participants)
         {
-            this.Subject = Subject;
-            this.Participants = Participants;
+            this.Subject = subject;
+            this.Participants = participants;
         }
     }
 }
