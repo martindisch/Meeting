@@ -34,21 +34,31 @@ namespace Meeting
 
         void item_click(object sender, EventArgs e)
         {
-            MenuItem clickedItem = sender as MenuItem;
-            switch (clickedItem.Text)
+            if (lbSubjects.SelectedIndex != -1)
             {
-                case "Neues Treffen":
-                    
-                    break;
-                case "Bearbeiten":
+                MenuItem clickedItem = sender as MenuItem;
+                switch (clickedItem.Text)
+                {
+                    case "Neues Treffen":
 
-                    break;
-                case "Löschen":
-                    if (lbSubjects.SelectedIndex != -1)
-                    {
+                        break;
+                    case "Bearbeiten":
+                        EditSubjectForm input = new EditSubjectForm(this, DS.Subjects.ElementAt(lbSubjects.SelectedIndex).Name);
+                        input.ShowDialog();
+                        if (NewNames.Count > 0)
+                        {
+                            DS.Subjects.ElementAt(lbSubjects.SelectedIndex).Name = NewNames.ElementAt(0);
+                            NewNames.Clear();
+                            lbSubjects.DataSource = null;
+                            lbSubjects.DisplayMember = "Name";
+                            lbSubjects.ValueMember = "ID";
+                            lbSubjects.DataSource = DS.Subjects;
+                        }
+                        break;
+                    case "Löschen":
                         DS.Subjects.RemoveAt(lbSubjects.SelectedIndex);
-                    }
-                    break;
+                        break;
+                }
             }
         }
 
@@ -67,7 +77,7 @@ namespace Meeting
 
         private void bAddSubject_Click(object sender, EventArgs e)
         {
-            SubjectForm input = new SubjectForm(this);
+            NewSubjectForm input = new NewSubjectForm(this);
             input.ShowDialog();
             for (int i = 0; i < NewNames.Count; i++)
             {

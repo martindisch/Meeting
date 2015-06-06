@@ -10,23 +10,18 @@ using System.Windows.Forms;
 
 namespace Meeting
 {
-    public partial class SubjectForm : Form
+    public partial class EditSubjectForm : Form
     {
+
         private MainForm Parent;
 
-        public SubjectForm(MainForm parent)
+        public EditSubjectForm(MainForm parent, string name)
         {
             InitializeComponent();
-            Parent = parent;
+            this.Parent = parent;
+            tbName.Text = name;
+            tbName.SelectAll();
             tbName.KeyDown += new KeyEventHandler(tb_KeyDown);
-        }
-
-        private void tb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                saveName();
-            }
         }
 
         private void bSave_Click(object sender, EventArgs e)
@@ -37,12 +32,15 @@ namespace Meeting
         private void saveName()
         {
             Parent.NewNames.Add(tbName.Text);
-            tbName.Clear();
+            Close();
         }
 
-        private void bClose_Click(object sender, EventArgs e)
+        private void tb_KeyDown(object sender, KeyEventArgs e)
         {
-            Close();
+            if (e.KeyCode == Keys.Enter)
+            {
+                saveName();
+            }
         }
     }
 }
