@@ -31,7 +31,7 @@ namespace Meeting
 
         private void saveName()
         {
-            Parent.NewNames.Add(tbName.Text);
+            Parent.NewSubjectsNames.Add(tbName.Text);
             Close();
         }
 

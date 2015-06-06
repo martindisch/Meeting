@@ -10,9 +10,9 @@ namespace Meeting
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int[] Days { get; set; }
+        public bool[] Days { get; set; }
 
-        public Person(int id, string name, int[] days)
+        public Person(int id, string name, bool[] days)
         {
             this.ID = id;
             this.Name = name;

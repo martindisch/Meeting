@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.gbData = new System.Windows.Forms.GroupBox();
-            this.lbSubjects = new System.Windows.Forms.ListBox();
-            this.bAddSubject = new System.Windows.Forms.Button();
-            this.lbParticipants = new System.Windows.Forms.ListBox();
             this.bAddParticipants = new System.Windows.Forms.Button();
+            this.lbParticipants = new System.Windows.Forms.ListBox();
+            this.bAddSubject = new System.Windows.Forms.Button();
+            this.lbSubjects = new System.Windows.Forms.ListBox();
             this.bSave = new System.Windows.Forms.Button();
             this.bLoad = new System.Windows.Forms.Button();
             this.gbMeetings = new System.Windows.Forms.GroupBox();
-            this.bGenerate = new System.Windows.Forms.Button();
             this.lbMeetings = new System.Windows.Forms.ListBox();
+            this.bGenerate = new System.Windows.Forms.Button();
             this.gbData.SuspendLayout();
             this.gbMeetings.SuspendLayout();
             this.SuspendLayout();
@@ -55,14 +55,24 @@
             this.gbData.TabStop = false;
             this.gbData.Text = "Grunddaten";
             // 
-            // lbSubjects
+            // bAddParticipants
             // 
-            this.lbSubjects.FormattingEnabled = true;
-            this.lbSubjects.ItemHeight = 16;
-            this.lbSubjects.Location = new System.Drawing.Point(7, 22);
-            this.lbSubjects.Name = "lbSubjects";
-            this.lbSubjects.Size = new System.Drawing.Size(325, 180);
-            this.lbSubjects.TabIndex = 0;
+            this.bAddParticipants.Location = new System.Drawing.Point(166, 494);
+            this.bAddParticipants.Name = "bAddParticipants";
+            this.bAddParticipants.Size = new System.Drawing.Size(166, 28);
+            this.bAddParticipants.TabIndex = 3;
+            this.bAddParticipants.Text = "Teilnehmer hinzufügen";
+            this.bAddParticipants.UseVisualStyleBackColor = true;
+            this.bAddParticipants.Click += new System.EventHandler(this.bAddParticipants_Click);
+            // 
+            // lbParticipants
+            // 
+            this.lbParticipants.FormattingEnabled = true;
+            this.lbParticipants.ItemHeight = 16;
+            this.lbParticipants.Location = new System.Drawing.Point(7, 244);
+            this.lbParticipants.Name = "lbParticipants";
+            this.lbParticipants.Size = new System.Drawing.Size(325, 244);
+            this.lbParticipants.TabIndex = 2;
             // 
             // bAddSubject
             // 
@@ -74,23 +84,14 @@
             this.bAddSubject.UseVisualStyleBackColor = true;
             this.bAddSubject.Click += new System.EventHandler(this.bAddSubject_Click);
             // 
-            // lbParticipants
+            // lbSubjects
             // 
-            this.lbParticipants.FormattingEnabled = true;
-            this.lbParticipants.ItemHeight = 16;
-            this.lbParticipants.Location = new System.Drawing.Point(7, 244);
-            this.lbParticipants.Name = "lbParticipants";
-            this.lbParticipants.Size = new System.Drawing.Size(325, 244);
-            this.lbParticipants.TabIndex = 2;
-            // 
-            // bAddParticipants
-            // 
-            this.bAddParticipants.Location = new System.Drawing.Point(166, 494);
-            this.bAddParticipants.Name = "bAddParticipants";
-            this.bAddParticipants.Size = new System.Drawing.Size(166, 28);
-            this.bAddParticipants.TabIndex = 3;
-            this.bAddParticipants.Text = "Teilnehmer hinzufügen";
-            this.bAddParticipants.UseVisualStyleBackColor = true;
+            this.lbSubjects.FormattingEnabled = true;
+            this.lbSubjects.ItemHeight = 16;
+            this.lbSubjects.Location = new System.Drawing.Point(7, 22);
+            this.lbSubjects.Name = "lbSubjects";
+            this.lbSubjects.Size = new System.Drawing.Size(325, 180);
+            this.lbSubjects.TabIndex = 0;
             // 
             // bSave
             // 
@@ -120,15 +121,6 @@
             this.gbMeetings.TabStop = false;
             this.gbMeetings.Text = "Treffen";
             // 
-            // bGenerate
-            // 
-            this.bGenerate.Location = new System.Drawing.Point(836, 545);
-            this.bGenerate.Name = "bGenerate";
-            this.bGenerate.Size = new System.Drawing.Size(94, 28);
-            this.bGenerate.TabIndex = 1;
-            this.bGenerate.Text = "Generieren";
-            this.bGenerate.UseVisualStyleBackColor = true;
-            // 
             // lbMeetings
             // 
             this.lbMeetings.FormattingEnabled = true;
@@ -138,7 +130,16 @@
             this.lbMeetings.Size = new System.Drawing.Size(546, 500);
             this.lbMeetings.TabIndex = 2;
             // 
-            // Form1
+            // bGenerate
+            // 
+            this.bGenerate.Location = new System.Drawing.Point(836, 545);
+            this.bGenerate.Name = "bGenerate";
+            this.bGenerate.Size = new System.Drawing.Size(94, 28);
+            this.bGenerate.TabIndex = 1;
+            this.bGenerate.Text = "Generieren";
+            this.bGenerate.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +151,7 @@
             this.Controls.Add(this.gbData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meeting";
             this.gbData.ResumeLayout(false);
